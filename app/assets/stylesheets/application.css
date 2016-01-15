@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+.list-sorter {
+  color: inherit;
+  text-decoration: none !important;
+}
+
+.list-sorter i {
+  margin-left: 10px;
+  color: #999;
+}

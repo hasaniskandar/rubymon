@@ -1,0 +1,28 @@
+h1 Monsters
+
+table.table.table-striped
+  thead
+    tr
+      = sortable_th_tag "Name", "LOWER(monsters.name)"
+      = sortable_th_tag "Power", "power"
+      = sortable_th_tag Monster.human_attribute_name(:element), "element"
+      = sortable_th_tag "Team", "LOWER(teams.name)"
+      = sortable_th_tag "Weakness", "weakness"
+      th colspan=2
+
+  tbody
+    - @monsters.each do |monster|
+      tr
+        td= link_to monster.name, monster
+        td= monster.power
+        td= monster.element.titleize
+        td= monster.team.try!(:name)
+        td= monster.weakness.titleize
+        td width=1 = link_to 'Edit', edit_monster_path(monster), class: 'btn btn-xs btn-default'
+        td width=1 = link_to 'Delete', monster, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-xs btn-danger'
+    - if @monsters.empty?
+      tr
+        td.text-center.text-muted colspan=7
+          em No entry
+
+= link_to 'New Monster', new_monster_path, class: 'btn btn-success'

@@ -1,0 +1,4 @@
+<% 1.upto 3 do |i| %>
+user_<%= i %>:
+  email: user_<%= i %>@rubymon.com
+<% end %>

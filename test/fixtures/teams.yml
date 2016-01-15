@@ -1,0 +1,5 @@
+<% 1.upto Team::LIMIT_PER_USER do |i| %>
+team_2_<%= i %>:
+  user: user_2
+  name: Team <%= i %>
+<% end %>

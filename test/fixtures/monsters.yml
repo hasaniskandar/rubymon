@@ -1,0 +1,21 @@
+<% 1.upto Monster::LIMIT_PER_USER do |i| %>
+monster_1_<%= i %>:
+  user: user_1
+  name: Monster <%= i %>
+  element: fire
+<% end %>
+
+<% 1.upto Monster::LIMIT_PER_TEAM + 1 do |i| %>
+monster_2_<%= i %>:
+  user: user_2
+  <% if i <= Monster::LIMIT_PER_TEAM %>
+  team: team_2_1
+  <% end %>
+  name: Monster <%= i %>
+  element: fire
+<% end %>
+
+monster_3_1:
+  user: user_3
+  name: Monster 1
+  element: fire

@@ -1,0 +1,23 @@
+.row
+  .col-sm-offset-2.col-sm-10
+    h1 Monster
+
+.form-horizontal
+  .form-group
+    b.control-label.col-sm-2 Name
+    .col-sm-10: .form-control-static= @monster.name
+  .form-group
+    b.control-label.col-sm-2 Power
+    .col-sm-10: .form-control-static= @monster.power
+  .form-group
+    b.control-label.col-sm-2 Element
+    .col-sm-10: .form-control-static= @monster.element.titleize
+  .form-group
+    b.control-label.col-sm-2 Team
+    .col-sm-10: .form-control-static= @monster.team.try!(:name)
+
+.row
+  .col-sm-offset-2.col-sm-10
+    = link_to 'Edit', edit_monster_path(@monster), class: 'btn btn-default'
+    '
+    = link_to 'Back', monsters_path, class: 'btn btn-link'
